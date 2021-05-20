@@ -1,0 +1,59 @@
+body {
+	margin:0;
+	overflow:hidden;
+	height:100%;
+}
+#main {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	cursor:grab;
+}
+.ball {
+	border-radius:50%;
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:100px;
+	left:50%;
+	background:url('ball.png') no-repeat;
+	background-size:contain;
+	transform-origin:center;
+	z-index:1;
+}
+.ball-launcher {
+	position:absolute;
+	height:5px;
+	width:100px;
+	background:yellow;
+	border-radius:10px;
+	display:none;
+	transform-origin: left center;
+}
+#basket-net {
+	position:absolute;
+	top:300px;
+	right:0;
+	width:190px;
+	height:190px;
+}
+#basket-net #back,
+#basket-net #front {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+#basket-net #back {
+	background:url('basket-net-back.png') no-repeat;
+	background-size:contain;
+	z-index:0;
+}
+#basket-net #front {
+	background:url('basket-net-front.png') no-repeat;
+	background-size:contain;
+	z-index:2;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/modules/bulles/bulles.css">
+    <script src="/socket.io/socket.io.js"></script> <!-- fichier automatique refilé par le serveur -->
+    <link rel="stylesheet" href="style.css">
+    <title>Chat</title>
+</head>
+
+<body>
+
+    <section class="settings_container">
+        <div id="imageAvatar" style="background-image: url('man.svg')"></div>
+        <label class="label" for="avatarUpload"><img src="user.svg"></label>
+        <input type="file" name="avatar" id="avatarUpload">
+        <label class="label" for="wizz-button"><img src="alarm.svg" alt="alarm"></label>
+        <input type="button" class="label" name="wizz-button" id="wizz-button" value="Wizz!" />
+        <label class="label"><img id="changeName" src="change_name.svg" alt="changer de nom"></label>
+    </section>
+
+    <div id="chat">
+        <div class="chat_header">
+            <h1>Nom de groupe</h1>
+        </div>
+        <div id="messages">
+        </div>
+        <div class="tap_bar">
+            <div id="is_typing"></div>
+            <div class="tap_container">
+                <label for="smiley" class="label">
+                    <img src="./crazy.svg" alt="crazy">
+                </label>
+                <input type="button" class="label" id="smiley" value="Smiley" />
+                <input type="text" id="message-input" autofocus />
+                <form id="fileupload" action="fileupload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="filetoupload" id="filetoupload">
+                    <label for="filetoupload" class="label">
+                        <img src="./link.svg" alt="link">
+                    </label>
+                </form>
+                <label for="send-message">
+                    <img src="./right-arrow.svg" alt="send">
+                </label>
+                <input type="button" id="send-message" value="Envoyer" />
+                <div id="smiley-list">
+                    <span class="un" data-smiley=":p"></span>
+                    <span class="deux" data-smiley="xD"></span>
+                    <span class="trois" data-smiley=":)"></span>
+                    <span class="quatre" data-smiley=".;"></span>
+                    <span class="cinq" data-smiley=":z"></span>
+                    <span class="six" data-smiley=":')"></span>
+                    <span class="sept" data-smiley=":/"></span>
+                    <span class="huit" data-smiley=":D"></span>
+                    <span class="neuf" data-smiley="x.x"></span>
+                    <span class="dix" data-smiley="*.*"></span>
+                    <span class="onze" data-smiley=":@"></span>
+                    <span class="douze" data-smiley="XwX"></span>
+                    <span class="treize" data-smiley="^^'"></span>
+                    <span class="quatorze" data-smiley=":*"></span>
+                    <span class="quinze" data-smiley=";)"></span>
+                    <span class="seize" data-smiley="T.T"></span>
+                    <span class="dixsept" data-smiley="^^"></span>
+                    <span class="dixhuit" data-smiley=":("></span>
+                    <span class="dixneuf" data-smiley="8)"></span>
+                    <span class="vingt" data-smiley="x_x"></span>
+                    <span class="vingtun" data-smiley=":'("></span>
+                    <span class="vingtdeux" data-smiley="o///o"></span>
+                    <span class="vingtrois" data-smiley=":."></span>
+                    <span class="vingtquatre" data-smiley="-_-"></span>
+                    <span class="vingtcinq" data-smiley=":#"></span>
+                    <span class="vingtsix" data-smiley=":o"></span>
+                    <span class="vingtsept" data-smiley=":3"></span>
+                    <span class="vingthuit" data-smiley="x')"></span>
+                    <span class="vingtneuf" data-smiley=";D"></span>
+                    <span class="trente" data-smiley="0)"></span>
+                    <span class="pepemoji" data-smiley="pepemoji"></span>
+                    <span class="pepechoque" data-smiley="pepechoque"></span>
+                    <span class="pepecool" data-smiley="pepecool"></span>
+                    <span class="pepelarme" data-smiley="pepelarme"></span>
+                    <span class="pepesad" data-smiley="pepesad"></span>
+                    <span class="pepelove" data-smiley="pepelove"></span>
+                    <span class="pepeniais" data-smiley="pepeniais"></span>
+                    <span class="pepemdr" data-smiley="pepemdr"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="btn_container">
+        <div class="users-list">
+            <div class="users-list-title">
+                <h4>Participants</h4>
+            </div>
+            <div id="users-list-container"></div>
+        </div>
+        <div class="medias">
+            <div class="medias_title">
+                <h4>Medias</h4>
+            </div>
+            <div class="medias_container">
+                <label for="filetoupload" class="media_link">
+                    <img src="./file.svg" alt="file">
+                    <p>Documents</p>
+                </label>
+                <div id="mediasJeux" class="media_link">
+                    <img src="./console.svg" alt="console">
+                    <p id="pJeux">Jeux</p>
+                    <div id="buttons">
+                        <input type="button" class="label" id="bulle-button" value="Bulle !" />
+                        <!-- <input type="button" class="label" id="basket-button" value="Basket !" /> -->
+                    </div>
+                </div>
+                <label for="filetoupload" class="media_link">
+                    <img src="./picture.svg" alt="picture">
+                    <p>Images</p>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <div id="help">
+        <img id="btn-help" src="./information.svg" title="un peu d'aide ?" />
+
+        <div class="inner">
+            <img id="btn-close-help" src="close-help.png" />
+
+            <h3>Fonctionnalités</h3>
+            <ul>
+                <li>Choisissez un avatar...</li>
+                <li>Choisissez un pseudo...</li>
+                <li>Réveillez vos amis en tapant "Wizz" !</li>
+                <li>Tapez n'importe quel smiley...</li>
+                <li>Tapez "gif" puis un mot clé...</li>
+                <li>Jack Sparrow donne son avis au cours de vos discussions</li>
+                <!-- <li>Basket : faites un max de jongles</li> -->
+                <li>Bulles : faites en exploser un max</li>
+                <li>Partagez des fichiers et des images</li>
+                <!-- <li>Lancez des vidéos : "je veux regarder ..."</li> -->
+                <li>Essayez "Bim, Bam, Boom" ...</li>
+                <li>Tapez "quizz" pour tester vos connaissances</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <script type="text/javascript" src="modules/bulles/bulles.js"></script>
+    <script type="text/javascript" src="modules/basket/basket.js"></script>
+    <script type="text/javascript" src="wizzChat.js"></script>
+    <!-- <script type="text/javascript" src="easter-eggsChat.js"></script> -->
+    <script type="text/javascript" src="modules/avatars/avatar.js"></script>
+    <script type="text/javascript" src="modules/feedback/typing.js"></script>
+    <script type="text/javascript" src="modules/bimbamboom/bimbamboom.js"></script>
+</body>
+
+</html>

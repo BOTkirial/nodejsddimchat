@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="618" height="618" viewBox="0 0 618 618">
+  <defs>
+    <filter id="Ellipse_1" x="0" y="0" width="618" height="618" filterUnits="userSpaceOnUse">
+      <feOffset dy="9" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="300" cy="300" r="300"/>
+    </clipPath>
+  </defs>
+  <g id="man" transform="translate(9 -0.001)">
+    <g id="Groupe_5" data-name="Groupe 5" transform="translate(0 0.001)">
+      <g transform="matrix(1, 0, 0, 1, -9, 0)" filter="url(#Ellipse_1)">
+        <circle id="Ellipse_1-2" data-name="Ellipse 1" cx="300" cy="300" r="300" transform="translate(9 0)" fill="#e6e7e2"/>
+      </g>
+      <g id="Groupe_1" data-name="Groupe 1" clip-path="url(#clip-path)">
+        <path id="Tracé_1" data-name="Tracé 1" d="M317.519,229.619h-.064a168.609,168.609,0,0,0-20.5-13.263,1.947,1.947,0,0,0-.609-.3A110.015,110.015,0,0,1,239.4,119.622l-51.41-.246a110.014,110.014,0,0,1-57.434,96.674.187.187,0,0,0-.121.061,179.227,179.227,0,0,0-20.748,13.263A173.544,173.544,0,0,0,39.539,368.942H387.361A173.476,173.476,0,0,0,317.519,229.619Z" transform="translate(86.55 261.308)" fill="#ecc19c"/>
+      </g>
+      <g id="Groupe_2" data-name="Groupe 2" clip-path="url(#clip-path)">
+        <path id="Tracé_2" data-name="Tracé 2" d="M387.363,309.886H39.538a173.544,173.544,0,0,1,70.148-139.569,179.448,179.448,0,0,1,20.744-13.263.2.2,0,0,1,.124-.061,107.983,107.983,0,0,0,15.878-10.648,93.8,93.8,0,0,0,134.215.061,101.555,101.555,0,0,0,15.7,10.587,1.911,1.911,0,0,1,.609.3,168.58,168.58,0,0,1,20.5,13.263h.064A173.494,173.494,0,0,1,387.363,309.886Z" transform="translate(86.548 320.345)" fill="#168ef7"/>
+      </g>
+      <g id="Groupe_3" data-name="Groupe 3" clip-path="url(#clip-path)">
+        <path id="Tracé_3" data-name="Tracé 3" d="M52.217,38.091v136.6C52.217,267.1,133.335,342,185.7,342S319.186,267.1,319.186,174.694V38.091Z" transform="translate(114.302 83.377)" fill="#ecc19c"/>
+      </g>
+      <g id="Groupe_4" data-name="Groupe 4" clip-path="url(#clip-path)">
+        <path id="Tracé_4" data-name="Tracé 4" d="M322.342,71.2C293.249,34.77,249.085,11.481,199.684,11.481c-87.764,0-158.843,73.257-158.843,163.6a165.228,165.228,0,0,0,51.9,120.964,184.271,184.271,0,0,1-12.813-68.18c0-39.247,11.927-75.19,31.753-102.832,21.035,9.35,55.125,12.734,92.515,7.577,37.072-5.077,68.662-17.326,86.472-31.912,32.48,28.688,53.594,74.947,53.594,127.167a181.777,181.777,0,0,1-15.313,73.981c31.348-12.976,54.4-59.232,54.4-114.277C383.344,128.657,356.91,80.063,322.342,71.2Z" transform="translate(89.4 25.128)" fill="#494846"/>
+      </g>
+    </g>
+  </g>
+</svg>
