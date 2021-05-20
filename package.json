@@ -7,12 +7,15 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.15.2"
+    "ent": "^2.2.0",
+    "express": "^4.15.2",
+    "giphy-api": "^2.0.1",
+    "request": "^2.88.2",
+    "socket.io": "^4.1.2"
   },
   "devDependencies": {
     "got": "^11.3.0",
