@@ -167,4 +167,4 @@ io.on('connection', function (socket) {
 });
 
 // lance le serveur sur le port 5000
-server.listen(5000);
+server.listen(process.env.PORT || 5000);
