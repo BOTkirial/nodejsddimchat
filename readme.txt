@@ -1,1 +1,1 @@
-deployé sur vercel : https://vercel.com/botkirial/nodejsddimchat
+deployé sur heroku
