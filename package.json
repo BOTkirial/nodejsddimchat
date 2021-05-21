@@ -5,9 +5,9 @@
   "engines": {
     "node": "14.x"
   },
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./api/index.js"
   },
   "dependencies": {
     "ejs": "^3.1.5",

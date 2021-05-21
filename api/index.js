@@ -1,7 +1,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var ioLib = require('socket.io');
+var { Server } = require('socket.io');
+// var ioLib = require('socket.io');
 var ent = require('ent');
 
 // Chargement des modules perso
@@ -28,15 +29,19 @@ var app = express()
 // crée le server
 var server = http.createServer(app)
 // setup le socket.io pour ce serveur
-var io = ioLib(server)
+// var io = ioLib(server)
+var io = new Server(server)
 
 // renvoie index.html lorsqu'un user vas sur la route /
-app.get('/', (req, res) => res.sendFile(path.resolve(__dirname + '/src/index.html')))
+app.get('/', (req, res) => res.sendFile(path.resolve('./src/index.html')))
 
 // spécifie les dossiers auxquels l'appli a acces
-app.use(express.static(path.resolve(__dirname + '/src')));
-app.use(express.static(path.resolve(__dirname + '/src/assets')));
-app.use(express.static(path.resolve(__dirname + '/src/assets/uploads')));
+app.use(express.static(path.resolve('./src')));
+app.use(express.static(path.resolve('./src/assets')));
+app.use(express.static(path.resolve('./src/assets/uploads')));
+// app.use(express.static(path.resolve(__dirname + '../src')));
+// app.use(express.static(path.resolve(__dirname + '../src/assets')));
+// app.use(express.static(path.resolve(__dirname + '../src/assets/uploads')));
 
 // initialisation du module bulle
 bulles.init(io);
@@ -45,7 +50,9 @@ bulles.init(io);
 let users = {};
 
 // Gestion des connexions au socket
-io.sockets.on('connection', function (socket) {
+io.on('connection', function (socket) {
+
+	// io.sockets.on('connection', function (socket) {
 	//console.log('connection ' + socket.id);
 	// Insère le user dans le tableau
 	users[socket.id] = { id: socket.id, name: '...' };

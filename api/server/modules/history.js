@@ -23,7 +23,7 @@ function addToHistory(_name, _message, _avatar) {
 
     myJson = JSON.stringify(_history);
 
-    fs.writeFile('./server/history.json', myJson, (err) => {
+    fs.writeFile('./api/server/history.json', myJson, (err) => {
         if (err) {
             throw err;
         }
@@ -33,7 +33,7 @@ function addToHistory(_name, _message, _avatar) {
 
 function getHistory(io) {
     console.log("getHistory")
-    fs.readFile('./server/history.json', (err, data) => {
+    fs.readFile('./api/server/history.json', (err, data) => {
         if (err) {
             createHistoryFile();
         }
@@ -53,7 +53,7 @@ function getHistory(io) {
 function createHistoryFile() {
     console.log("create history")
     myJson = JSON.stringify(_history);
-    fs.writeFile('./server/history.json', myJson, (err) => {
+    fs.writeFile('./api/server/history.json', myJson, (err) => {
         if (err) {
             throw err;
         }

@@ -1,5 +1,15 @@
 // Connexion au socket
-var socket = io.connect(':5000');
+// var socket = io('http://localhost:5000');
+var socket = io();
+// var socket = io('http://localhost:5000', { rejectUnauthorized: false });
+// var socket = io.connect(':5000');
+// const socket = io.connect("http://localhost:5000", { secure: true, reconnection: true, rejectUnauthorized: false });
+// const socket = io.connect("http://localhost:5000", { secure: true, reconnection: true, rejectUnauthorized: false });
+// const socket = io(":5000", { transports: ["websocket"], upgrade: false });
+
+socket.on("connect_error", (err) => {
+	console.log(`connect_error due to ${err.message}`);
+});
 
 // Demande un pseudo et envoie l'info au serveur
 var name = prompt('Quel est votre pseudo ?', 'User' + Math.floor(Math.random() * 9999));

@@ -16,7 +16,7 @@ function handleAvatars(avatar, socket)
 {
 	// enregistrer avatar
 	var file = socket.id + '.gif';
-	fs.writeFile(path.resolve(__dirname + '/../../src/assets/upload/'+file), avatar, function(err)
+	fs.writeFile(path.resolve(__dirname + '/../../../src/assets/upload/'+file), avatar, function(err)
 	{
 		if(err)
 		{
@@ -38,7 +38,7 @@ function deleteAvatars(avatar, socket)
     }
     else
 	{
-        fs.unlinkSync(path.resolve(__dirname + '/../../src/assets/upload/'+file), avatar, function(err)
+        fs.unlinkSync(path.resolve(__dirname + '/../../../src/assets/upload/'+file), avatar, function(err)
 		{
             if(err)
                 return console.log(err);
